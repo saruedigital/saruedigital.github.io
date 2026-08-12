@@ -1,0 +1,11 @@
+/* Project wide libraries */
+@import "tailwindcss";
+
+/* Overrides */
+html,
+body,
+main {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
