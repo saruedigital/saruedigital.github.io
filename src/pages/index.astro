@@ -1,0 +1,23 @@
+---
+import i18n from "../assets/i18n/pt-br.json";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title={i18n.pages.index.title}>
+	<main>
+		<div>
+			<h1>
+				{i18n.pages.index.soon}
+			</h1>
+		</div>
+	</main>
+</Layout>
+
+<style>
+	main {
+		display: grid;
+		height: 100%;
+		width: 100%;
+		place-items: center;
+	}
+</style>
