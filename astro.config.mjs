@@ -6,8 +6,10 @@ import tailwindcss from '@tailwindcss/vite';
 // https://astro.build/config
 export default defineConfig({
   outDir: "docs/",
-  site: 'https://saruedigital.github.io',
-
+  site: 'https://saruedigital.github.io/',
+  build: {
+    assets: 'assets',
+  },
   vite: {
     plugins: [tailwindcss()],
   },
