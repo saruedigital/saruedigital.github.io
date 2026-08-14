@@ -1,11 +1,37 @@
-/* Project wide libraries */
 @import "tailwindcss";
 
-/* Overrides */
+/* Tailwind overrides */
 html,
 body,
 main {
-    margin: 0;
-    width: 100%;
-    height: 100%;
+    @apply m-0 w-full h-full;
 }
+
+@layer base { /* base layer gracefully respects local overrides */
+    a:hover {
+        @apply underline;
+    }
+
+    h1 {
+        @apply text-3xl font-medium;
+    }
+
+    h2 {
+        @apply text-2xl font-medium;
+    }
+
+    h3 {
+        @apply text-xl font-medium;
+    }
+
+    p {
+        @apply mt-4 mb-8;
+    }
+
+    .scroll-box {
+        max-height: 95lvh;
+
+        @apply scroll-smooth overflow-y-scroll scrollbar-none;
+    }
+}
+

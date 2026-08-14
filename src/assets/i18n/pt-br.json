@@ -1,4 +1,14 @@
 {
+    "layout": {
+        "title": "Saruê Digital",
+        "subtitle": "Monólogos sobre software, engenharia e dados",
+        "sidebar": {
+            "articles": "Artigos"
+        },
+        "mobile": {
+            "fallback": "Por enquanto estamos disponíveis apenas na versão para computador"
+        }
+    },
     "pages": {
         "index": {
             "title": "Saruê Digital",

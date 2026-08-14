@@ -1,7 +1,11 @@
 ---
 import "../assets/styles/global.css"
+import i18n from "../assets/i18n/pt-br.json";
+import { getCollection } from "astro:content";
 
 const {title} = Astro.props
+
+const posts = await getCollection("blog")
 ---
 <!doctype html>
 <html lang="en">
@@ -15,6 +19,47 @@ const {title} = Astro.props
 		</title>
 	</head>
 	<body>
-		<slot />
+		<!-- Desktop -->
+		<main class="hidden md:grid grid-cols-12 gap-6 p-6 bg-gray-50">
+			<div class="col-span-2 border-r-2 border-gray-300">
+				<a href="/">
+					<div class="place-self-center-safe">
+						<h1 class="text-4xl font-semibold">
+							{i18n.layout.title}
+						</h1>
+						<h2 class="text-xl font-light">
+							{i18n.layout.subtitle}
+						</h2>
+					</div>
+				</a>
+
+				<div class="mt-8">
+					<h3>{i18n.layout.sidebar.articles}</h3>
+
+					<ul>
+						{posts?.map(post => <li>
+							<a href={`/posts/${post.id}`}>
+								<span class="font-light">
+									{post.data.title}
+								</span>
+							</a>
+						</li>)}
+					</ul>
+				</div>
+			</div>
+			<div class="col-span-8 scroll-box">
+				<slot />
+			</div>
+			<div class="col-span-2 border-l-2 border-gray-300">
+				<!-- TODO -->
+			</div>
+		</main>
+
+		<!-- Mobile -->
+		<main class="block md:hidden">
+			<div class="p-4 text-center grid place-items-center h-full">
+				{i18n.layout.mobile.fallback}
+			</div>
+		</main>
 	</body>
 </html>
