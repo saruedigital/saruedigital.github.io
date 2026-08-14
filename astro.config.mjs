@@ -21,17 +21,4 @@ export default defineConfig({
       theme: 'github-dark',
     },
   },
-
-  integrations: [expressiveCode({
-    themes: ['github-dark'],
-    emitExternalStylesheet: false,
-    styleOverrides: {
-      borderRadius: "var(--radius-xl)",
-      codeFontSize: "var(--text-base)",
-      uiFontSize: "var(--text-sm)",
-      frames: {
-        editorActiveTabIndicatorTopColor: 'transparent',
-      }
-    }
-  })]
 });

@@ -33,5 +33,9 @@ main {
 
         @apply scroll-smooth overflow-y-scroll scrollbar-none;
     }
+
+    .astro-code {
+        @apply p-4 my-4 rounded-xl font-mono;
+    }
 }
 
