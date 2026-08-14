@@ -20,8 +20,8 @@ const posts = await getCollection("blog")
 	</head>
 	<body>
 		<!-- Desktop -->
-		<main class="hidden md:grid grid-cols-12 gap-6 p-6 bg-gray-50">
-			<div class="col-span-2 border-r-2 border-gray-300">
+		<main class="hidden md:grid grid-cols-12 gap-6 p-6">
+			<div class="col-span-2 border-r-2 border-color">
 				<a href="/">
 					<div class="place-self-center-safe">
 						<h1 class="text-4xl font-semibold">
@@ -50,7 +50,7 @@ const posts = await getCollection("blog")
 			<div class="col-span-8 scroll-box">
 				<slot />
 			</div>
-			<div class="col-span-2 border-l-2 border-gray-300">
+			<div class="col-span-2 border-l-2 border-color">
 				<!-- TODO -->
 			</div>
 		</main>
