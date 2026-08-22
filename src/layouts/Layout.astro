@@ -2,6 +2,7 @@
 import "../assets/styles/global.css"
 import i18n from "../assets/i18n/pt-br.json";
 import { getCollection } from "astro:content";
+import PostList from "../components/PostList.astro";
 
 const {title} = Astro.props
 
@@ -9,57 +10,52 @@ const posts = await getCollection("blog")
 ---
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>
-			{title}
-		</title>
-	</head>
-	<body>
-		<!-- Desktop -->
-		<main class="hidden md:grid grid-cols-12 gap-6 p-6">
-			<div class="col-span-2 border-r-2 border-color">
-				<a href="/">
-					<div class="place-self-center-safe">
-						<h1 class="text-4xl font-semibold">
-							{i18n.layout.title}
-						</h1>
-						<h2 class="text-xl font-light">
-							{i18n.layout.subtitle}
-						</h2>
-					</div>
-				</a>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <title>
+      {title}
+    </title>
+  </head>
+  <body>
+    <!-- Desktop -->
+    <main class="hidden md:grid grid-cols-12">
+      <div class="col-span-2 border-r-2 border-color p-4">
+        <a href="/">
+          <div class="place-self-center-safe">
+            <h1 class="text-4xl font-semibold">
+              {i18n.layout.title}
+            </h1>
+            <h2 class="text-xl font-light">
+              {i18n.layout.subtitle}
+            </h2>
+          </div>
+        </a>
 
-				<div class="mt-8">
-					<h3>{i18n.layout.sidebar.articles}</h3>
+        <div class="mt-8  ">
+          <!-- <PostList /> -->
+          <slot name="sidebar-l" />
+        </div>
+      </div>
 
-					<ul>
-						{posts?.map(post => <li>
-							<a href={`/posts/${post.id}`}>
-								<span class="font-light">
-									{post.data.title}
-								</span>
-							</a>
-						</li>)}
-					</ul>
-				</div>
-			</div>
-			<div class="col-span-8 scroll-box">
-				<slot />
-			</div>
-			<div class="col-span-2 border-l-2 border-color">
-				<!-- TODO -->
-			</div>
-		</main>
+      <div class="col-span-8 scroll-box px-10 py-4">
+        <slot name="content" />
+      </div>
 
-		<!-- Mobile -->
-		<main class="block md:hidden">
-			<div class="p-4 text-center grid place-items-center h-full">
-				{i18n.layout.mobile.fallback}
-			</div>
-		</main>
-	</body>
+      <div class="col-span-2 border-l-2 border-color p-4">
+        <div>
+          <slot name="sidebar-r" />
+        </div>
+      </div>
+    </main>
+
+    <!-- Mobile -->
+    <main class="block md:hidden">
+      <div class="p-4 text-center grid place-items-center h-full">
+        {i18n.layout.mobile.fallback}
+      </div>
+    </main>
+  </body>
 </html>

@@ -1,0 +1,22 @@
+---
+import i18n from '../assets/i18n/pt-br.json'
+import type {Heading} from '../types'
+
+const {headings} = Astro.props
+---
+
+<div>
+  <h2>
+    {i18n.pages.posts.sidebar.headers}
+  </h2>
+
+  <ol class="list-decimal list-inside">
+    {headings?.map((heading: Heading) => <li>
+      <a href={`#${heading?.slug}`}>
+        <span class="font-light">
+          {heading?.text}
+        </span>
+      </a>
+    </li>)}
+  </ol>
+</div>

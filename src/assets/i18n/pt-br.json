@@ -13,6 +13,11 @@
         "index": {
             "title": "Saruê Digital",
             "soon": "Em breve..."
+        },
+        "posts": {
+            "sidebar": {
+                "headers": "Nesse artigo"
+            }
         }
     }
 }

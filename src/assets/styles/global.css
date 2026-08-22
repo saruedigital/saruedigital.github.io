@@ -4,46 +4,46 @@
 html,
 body,
 main {
-    @apply m-0 w-full h-full;
+  @apply m-0 w-full h-full;
 }
 
 @layer base { /* base layer gracefully respects local overrides */
-    a:hover {
-        @apply underline;
-    }
+  a:hover {
+    @apply underline font-semibold;
+  }
 
-    h1 {
-        @apply text-3xl font-medium;
-    }
+  h1 {
+    @apply text-3xl font-medium;
+  }
 
-    h2 {
-        @apply text-2xl font-medium;
-    }
+  h2 {
+    @apply text-2xl font-medium;
+  }
 
-    h3 {
-        @apply text-xl font-medium;
-    }
+  h3 {
+    @apply text-xl font-medium;
+  }
 
-    main {
-        @apply bg-neutral-50 dark:bg-zinc-800 text-zinc-900 dark:text-gray-50;
-    }
+  main {
+    @apply bg-neutral-50 dark:bg-zinc-800 text-zinc-900 dark:text-gray-50;
+  }
 
-    p {
-        @apply mt-4 mb-8;
-    }
+  p {
+    @apply mt-4 mb-8;
+  }
 
-    .astro-code {
-        @apply p-4 my-4 rounded-xl font-mono;
-    }
+  .astro-code {
+    @apply p-4 my-4 rounded-xl font-mono;
+  }
 
-    .border-color {
-        @apply border-zinc-300 dark:border-zinc-500;
-    }
+  .border-color {
+    @apply border-zinc-300 dark:border-zinc-500;
+  }
 
-    .scroll-box {
-        max-height: 95lvh;
+  .scroll-box {
+    max-height: 100lvh;
 
-        @apply scroll-smooth overflow-y-scroll scrollbar-none;
-    }
+    @apply scroll-smooth overflow-y-scroll scrollbar-none;
+  }
 }
 

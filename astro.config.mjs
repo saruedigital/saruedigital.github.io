@@ -3,6 +3,8 @@ import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import expressiveCode from 'astro-expressive-code';
 
+import sitemap from '@astrojs/sitemap';
+
 // https://astro.build/config
 export default defineConfig({
   outDir: "docs/",
@@ -21,4 +23,6 @@ export default defineConfig({
       theme: 'github-dark',
     },
   },
+
+  integrations: [sitemap()],
 });

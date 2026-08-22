@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
+import PostHeadingsList from '../../components/PostHeadingsList.astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
@@ -11,8 +12,14 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
-const { Content } = await render(post);
+const { Content, headings } = await render(post);
 ---
 <Layout title={post.data.title}>
-  <Content />
+  <div slot="content" class="max-w-[80ch] place-self-center">
+    <Content />
+  </div>
+
+  <div slot="sidebar">
+    <PostHeadingsList headings={headings} />
+  </div>
 </Layout>
